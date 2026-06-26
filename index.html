@@ -1,1 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Sustentável - Equilíbrio e Futuro</title>
+    <style>
+        :root {
+            --primary-color: #2c5e3b;
+            --secondary-color: #8b6b25;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f5;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --danger-color: #c0392b;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a3e2a4;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 94, 59, 0.85), rgba(44, 94, 59, 0.7)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content Structure */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e1ebe4;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px 0;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Highlight Metrics */
+        .metric-card {
+            background: #eef5f0;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Infográfico Placeholder */
+        .infographic-box {
+            background: #fdfaf4;
+            border: 2px dashed var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        /* Interactive Quiz */
+        .quiz-container {
+            background: #f7f9fa;
+            border: 1px solid #e1e8ed;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            list-style: none;
+        }
+
+        .quiz-options li {
+            margin-bottom: 10px;
+        }
+
+        .quiz-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .quiz-btn:hover {
+            background-color: #1e4228;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Response Banner */
+        .response-banner {
+            background-color: #e8f4fd;
+            border-left: 5px solid #2980b9;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 35px;
+        }
+
+        footer {
+            background-color: #1e3a24;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">AGRO SUSTENTÁVEL</div>
+            <nav>
+                <ul>
+                    <li><a href="#producao">Produção</a></li>
+                    <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                    <li><a href="#desafios">Desafios</a></li>
+                    <li><a href="#futuro">Futuro & Soluções</a></li>
+                    <li><a href="#quiz">Quiz Interativo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>“Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente”</h1>
+        <p>Uma análise profunda sobre o papel econômico do agronegócio, seus impactos ambientais e os caminhos tecnológicos para a sustentabilidade e a segurança alimentar.</p>
+    </div>
+
+    <div class="container">
+        
+        <section id="producao">
+            <h2>Seção 1 – Produção Agrícola e Força Econômica</h2>
+            <p>O agronegócio consolidou-se como o motor central da economia brasileira. Impulsionado por demandas globais e forte eficiência produtiva, o setor alcança patamares históricos de movimentação financeira e volume produzido.</p>
+            
+            <div class="grid-2">
+                <div class="metric-card">
+                    <div class="metric-number">US$ 41,3 Bi</div>
+                    <p>Balança Comercial (Maio de 2026)</p>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">358 M t</div>
+                    <p>Projeção de Safra Recorde de Grãos</p>
+                </div>
+            </div>
+
+            <h3>Destaques de Mercado e Fluxos Interestaduais</h3>
+            <p>A cultura da <strong>soja</strong> lidera o crescimento, com projeções que podem atingir até 180 milhões de toneladas. Além dos grãos, produtos de alto valor agregado como o algodão e a manga registram recordes de exportação. Estados como <strong>Minas Gerais</strong> e <strong>Paraná</strong> demonstram enorme protagonismo, não apenas no comércio exterior, mas também no abastecimento e nas vendas interestaduais.</p>
+        </section>
+
+        <section id="sustentabilidade">
+            <h2>Seção 2 – Sustentabilidade e Energias Limpas</h2>
+            <p>A modernização do campo caminha lado a lado com novas abordagens ecológicas, visando mitigar impactos ambientais e otimizar o uso da terra por meio de ciência aplicada.</p>
+            
+            <h3>Práticas Agroecológicas e Biotecnologia</h3>
+            <p>O uso de <strong>biológicos e bioinsumos</strong> está em forte expansão no Brasil, substituindo gradativamente os insumos químicos tradicionais. O aprimoramento genético e a técnica de enxertia surgem como pilares fundamentais para elevar a produtividade e a competitividade do produtor sem a necessidade de expandir a área desmatada. Paralelamente, cresce a conscientização global sobre a conservação de polinizadores para assegurar o equilíbrio dos ecossistemas agrícolas.</p>
+
+            <h3>Matriz Energética no Campo</h3>
+            <p>A transição energética ganha força com a expansão dos biocombustíveis. O estado de <strong>Mato Grosso</strong> destaca-se nacionalmente, detendo sozinho 26% da produção nacional de biodiesel, enquanto a região Centro-Sul lidera a produção de etanol, reduzindo significativamente a pegada de carbono do transporte e maquinário.</p>
+        </section>
+
+        <section id="desafios">
+            <h2>Seção 3 – Desafios Ambientais e Contradições</h2>
+            <p>Apesar do sucesso comercial, o modelo hegemônico enfrenta críticas severas devido à sua alta dependência de insumos químicos e concentração de cultivos.</p>
+
+            <div class="infographic-box">
+                <h4>[Infográfico] Estrutura de Ocupação de Terras</h4>
+                <p style="color: var(--text-light); margin-top: 10px; font-size: 0.95rem;">
+                    <strong>Monocultura de Exportação (Commodities):</strong> Ocupa cerca de 80% das áreas agricultáveis (Ex: No Paraná, concentrado em apenas 4 produtos: soja, milho, carne de frango e cana-de-açúcar).<br>
+                    VS.<br>
+                    <strong>Agricultura Familiar:</strong> Ocupa menor área proporcional, mas é a real responsável pela diversidade da base alimentar da população interna.
+                </p>
+            </div>
+
+            <h3>Riscos e Impactos Diretos</h3>
+            <p>Os principais desafios socioambientais incluem o desmatamento residual para abertura de pastagens e lavouras e o uso massivo de defensivos químicos. O Brasil consome anualmente cerca de <strong>130 mil toneladas de agrotóxicos</strong>, gerando alertas sobre a contaminação de recursos hídricos e a vulnerabilidade das lavouras diante das crescentes pressões e variações climáticas.</p>
+        </section>
+
+        <section id="futuro">
+            <h2>Seção 4 – Soluções e o Amanhã</h2>
+            <p>O futuro do setor depende diretamente do emprego de inovações tecnológicas de ponta aliadas à responsabilidade social e conservação nativa.</p>
+            
+            <p>A <strong>agricultura de precisão</strong> e o monitoramento em tempo real por meio de drones transformam o manejo, permitindo a aplicação exata de recursos e evitando desperdícios. A integração harmônica entre ciência, tecnologia de ponta e preservação ambiental é o único caminho viável para atender aos interesses reais da sociedade.</p>
+
+            <div class="response-banner">
+                <h3>Resposta à Pergunta Norteadora</h3>
+                <p style="font-style: italic; margin-bottom: 10px; color: #2c3e50;">"Como o agronegócio pode crescer economicamente sem comprometer os recursos naturais das futuras gerações?"</p>
+                <p>O agronegócio pode crescer de forma sustentável ao migrar de um modelo puramente extrativista para um <strong>modelo baseado em conhecimento e tecnologia</strong>. Isso envolve:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Adoção de Bioinsumos:</strong> Substituir agrotóxicos por biológicos, reduzindo danos ao solo e às águas.</li>
+                    <li><strong>Eficiência Tecnológica:</strong> Produzir mais na mesma área via genética e dados, zerando a necessidade de desmatamento.</li>
+                    <li><strong>Diversificação e Apoio Social:</strong> Fortalecer a agricultura familiar para garantir a soberania alimentar interna.</li>
+                    <li><strong>Transição Energética:</strong> Ampliar o uso de biocombustíveis (etanol e biodiesel).</li>
+                </ul>
+                <p style="margin-top: 10px; font-weight: bold;">A conservação não é um obstacle, mas o pré-requisito para a sobrevivência econômica do próprio agro a longo prazo.</p>
+            </div>
+        </section>
+
+        <section id="quiz">
+            <h2>Seção 5 – Teste seu Conhecimento (Quiz Interativo)</h2>
+            <p>Responda às perguntas abaixo com base nos dados reais apresentados no site para avaliar sua compreensão sobre os rumos do agronegócio brasileiro.</p>
+            
+            <div class="quiz-container">
+                <div class="quiz-question">1. Qual estado detém 26% da produção nacional de biodiesel no Brasil?</div>
+                <ul class="quiz-options">
+                    <li><input type="radio" name="q1" value="A" id="q1a"> <label for="q1a">A) Paraná</label></li>
+                    <li><input type="radio" name="q1" value="B" id="q1b"> <label for="q1b">B) Minas Gerais</label></li>
+                    <li><input type="radio" name="q1" value="C" id="q1c"> <label for="q1c">C) Mato Grosso</label></li>
+                </ul>
+                
+                <div class="quiz-question" style="margin-top: 20px;">2. Qual o volume estimado do uso anual de agrotóxicos citado no país?</div>
+                <ul class="quiz-options">
+                    <li><input type="radio" name="q2" value="A" id="q2a"> <label for="q2a">A) 50 mil toneladas</label></li>
+                    <li><input type="radio" name="q2" value="B" id="q2b"> <label for="q2b">B) 130 mil toneladas</label></li>
+                    <li><input type="radio" name="q2" value="C" id="q2c"> <label for="q2c">C) 358 milhões de toneladas</label></li>
+                </ul>
+
+                <button class="quiz-btn" style="margin-top: 20px;" onclick="checkQuiz()">Enviar Respostas</button>
+                <div id="quiz-result" class="quiz-feedback"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Agro Forte & Sustentável. Desenvolvido para fins educativos e de conscientização ecológica.</p>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            let score = 0;
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const resultDiv = document.getElementById('quiz-result');
+
+            if (!q1 || !q2) {
+                resultDiv.style.color = "var(--danger-color)";
+                resultDiv.innerText = "Por favor, responda a todas as perguntas antes de enviar.";
+                return;
+            }
+
+            if (q1.value === 'C') score++;
+            if (q2.value === 'B') score++;
+
+            if (score === 2) {
+                resultDiv.style.color = "var(--primary-color)";
+                resultDiv.innerText = "Parabéns! Você acertou todas as questões (2/2). Está bem informado sobre o tema!";
+            } else {
+                resultDiv.style.color = "var(--secondary-color)";
+                resultDiv.innerText = `Você acertou ${score} de 2 questões. Tente revisar os dados e tente novamente!`;
+            }
+        }
+    </script>
+</body>
+</html>
